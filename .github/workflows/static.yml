@@ -1,0 +1,13 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Sample
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 21f3000426@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
