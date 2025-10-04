@@ -1,0 +1,47 @@
+name: CI with Cache
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 1: Restore dependencies from cache
+    - name: Restore cache
+      id: cache-step
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/pip        # Python example
+          node_modules        # Node.js example
+        key: cache-9a8be80
+
+    # Step 2: Echo if cache hit or miss
+    - name: Prime cache-9a8be80
+      run: |
+        if [ "${{ steps.cache-step.outputs.cache-hit }}" == "true" ]; then
+          echo "Cache hit for cache-9a8be80 ✅"
+        else
+          echo "Cache miss for cache-9a8be80 ❌"
+        fi
+
+    # Step 3: Install dependencies (only needed if cache missed)
+    - name: Install dependencies
+      run: |
+        # Example for Python
+        pip install -r requirements.txt
+        # Or for Node.js
+        # npm install
+
+    # Step 4: Run your build/tests
+    - name: Run tests
+      run: |
+        echo "Run your CI commands here"
