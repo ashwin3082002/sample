@@ -1,4 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Simple workflow with caching
 name: Sample
 
 on:
@@ -8,6 +8,37 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: 21f3000426@ds.study.iitm.ac.in
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Restore cache
+      - name: Restore cache
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip       # Python example
+            # node_modules     # Uncomment for Node.js projects
+          key: cache-9a8be80
+
+      # Step 3: Echo cache hit/miss
+      - name: prime-cache-9a8be80
+        run: |
+          if [ "${{ steps.cache-step.outputs.cache-hit }}" == "true" ]; then
+            echo "Cache hit for cache-9a8be80 ✅"
+          else
+            echo "Cache miss for cache-9a8be80 ❌"
+          fi
+
+      # Step 4: Install dependencies (only needed if cache missed)
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # Replace with your actual dependency install
+          # or npm install if Node.js
+
+      # Step 5: Test or run commands
+      - name: Hello world
         run: echo "Hello, world!"
