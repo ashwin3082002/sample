@@ -25,7 +25,7 @@ jobs:
         key: cache-9a8be80
 
     # Step 2: Echo if cache hit or miss
-    - name: Prime cache-9a8be80
+    - name: prime-cache-9a8be80
       run: |
         if [ "${{ steps.cache-step.outputs.cache-hit }}" == "true" ]; then
           echo "Cache hit for cache-9a8be80 ✅"
