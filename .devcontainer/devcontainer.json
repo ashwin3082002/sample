@@ -1,8 +1,18 @@
 {
-  "name": "ga2-ollama",
+  "name": "ga2-1c4231",
   "build": {
     "dockerfile": "Dockerfile"
   },
   "forwardPorts": [11434],
-  "postCreateCommand": "echo 'Devcontainer ready!'"
+  "postCreateCommand": "echo 'Devcontainer ready!'",
+  "image": "mcr.microsoft.com/devcontainers/python:1",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "extensions": [
+    "astral-sh.uv",
+    "ms-python.python"
+  ],
+  "postCreateCommand": "uv pip install fastapi",
+  "remoteUser": "vscode"
 }
