@@ -1,10 +1,9 @@
-name: Tds Ga2 Test
+# Simple workflow for deploying static content to GitHub Pages
+name: Sample
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
+    branches: ["main"]
 
 jobs:
   test:
