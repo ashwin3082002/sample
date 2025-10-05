@@ -1,0 +1,14 @@
+name: Tds Ga2 Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 21f3000426@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
