@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+      - name: 21f3000426@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
+        
       # Step 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v3
