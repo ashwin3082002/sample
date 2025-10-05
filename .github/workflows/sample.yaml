@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Sample
+name: Sample 1
 
 on:
   push:
